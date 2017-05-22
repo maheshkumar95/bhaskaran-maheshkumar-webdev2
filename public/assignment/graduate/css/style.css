@@ -6,7 +6,12 @@ nav.navbar.navbar-default.navbar-fixed-top{
     padding-right: 0px;
 
 }
-
+.container {
+    width: 100%;
+}
+.navbar-text{
+    padding-right: 2px;
+}
 .glyphicon{
     font-weight: bold;
 }
