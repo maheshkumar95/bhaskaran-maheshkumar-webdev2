@@ -34,7 +34,8 @@
         <form>
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text"
+                <input ng-model="model.user.username"
+                       type="text"
                        class="form-control"
                        id="username"
                        placeholder="mahesh123">
@@ -50,7 +51,8 @@
 
             <div class="form-group">
                 <label for="first-name">First Name</label>
-                <input type="text"
+                <input ng-model="model.user.firstName"
+                       type="text"
                        class="form-control"
                        id="first-name"
                        placeholder="Mahesh">

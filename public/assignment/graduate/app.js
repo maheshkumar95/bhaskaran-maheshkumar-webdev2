@@ -16,8 +16,10 @@
             .when('/register',{
                 templateUrl:'views/user/templates/register.view.client.html'
             })
-            .when('/profile',{
-                templateUrl:'views/user/templates/profile.view.client.html'
+            .when('/profile/:userId',{
+                templateUrl:'views/user/templates/profile.view.client.html',
+                controller:'profileController',
+                controllerAs: 'model'
             });
     }
 })();
