@@ -23,6 +23,7 @@
             var obj = {
                 message: message
             };
+            console.log(message)
             $http.post("/api/test", obj)
                 .then(
                     findAllMessages,
