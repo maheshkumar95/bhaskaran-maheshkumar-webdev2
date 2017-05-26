@@ -9,9 +9,15 @@
                 templateUrl:'home.html'
             })
             .when('/login', {
-                templateUrl:'user/login.view.client.html',
+                templateUrl:'views/user/templates/login.view.client.html',
                 controller: 'loginController',
                 controllerAs: 'model'
+            })
+            .when('/register',{
+                templateUrl:'views/user/templates/register.view.client.html'
+            })
+            .when('/profile',{
+                templateUrl:'views/user/templates/profile.view.client.html'
             });
     }
 })();
