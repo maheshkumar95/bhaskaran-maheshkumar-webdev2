@@ -3,17 +3,45 @@
 <html lang="en" ng-app="WAM">
 <head>
 
-    <script src="../../vendor/angular/angular.min.js"></script>
-    <script src="vendor/angular/angular-route.min.js"></script>
-    <script src="app.js"></script>
-    <script src="views/user/controllers/login.controller.view.js"></script>
-    <script src="views/user/controllers/profile.controller.view.js"></script>
-    <script src="services/user.service.client.js"></script>
-    <style href="css/style.css" rel="stylesheet"></style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="../../vendor/angular/angular.min.js"></script>
+    <script src="../../vendor/angular/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <!-- user -->
+    <script src="views/user/controllers/login.controller.view.js"></script>
+    <script src="views/user/controllers/profile.controller.view.js"></script>
+    <script src="views/user/controllers/register.controller.view.js"></script>
+    <script src="services/user.service.client.js"></script>
+
+    <!-- website -->
+    <script src="views/website/controllers/website-list.controller.client.js"></script>
+    <script src="views/website/controllers/website-edit.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+    <script src="services/website.service.client.js"></script>
+
+    <!-- page -->
+    <script src="views/page/controllers/page-list.controller.client.js"></script>
+    <script src="views/page/controllers/page-edit.controller.client.js"></script>
+    <script src="views/page/controllers/page-new.controller.client.js"></script>
+
+    <script src="services/page.service.client.js"></script>
+
+    <!-- TBD -->
+
+    <!-- widgets -->
+    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+    <script src="services/widget.service.client.js"></script>
+
+
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -25,17 +53,17 @@
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="vendor/bootstrap/theme.css" rel="stylesheet">
 
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div ng-view>
 
+<div ng-view>
 
-    </div>
+</div>
 
 
 <!-- Bootstrap core JavaScript
@@ -44,5 +72,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--<script src="../../assets/js/docs.min.js"></script>-->
 </body>
 </html>

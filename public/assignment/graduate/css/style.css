@@ -1,9 +1,20 @@
+
+.navbar.navbar-default a{
+    font-weight: bold;
+    color:blue;
+}
+
+.container {
+    width: 100%;
+}
+
 input.form-control , textarea.form-control , select.form-control {
     margin-bottom: 5px;
 }
 
 nav.navbar.navbar-default.navbar-fixed-top{
     padding-right: 0px;
+    color:blue;
 
 }
 .container {
@@ -14,6 +25,12 @@ nav.navbar.navbar-default.navbar-fixed-top{
 }
 .glyphicon{
     font-weight: bold;
+}
+
+a{
+    font-weight: bold;
+    text-decoration-color:blue;
+    color:blue;
 }
 
 body {
@@ -39,6 +56,7 @@ body {
     font-size: 20px;
     padding: 15px 15px;
 }
+
 .navbar-default .navbar-link {
     color: #0a2def;
 }

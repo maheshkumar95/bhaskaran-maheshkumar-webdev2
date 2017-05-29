@@ -1,0 +1,59 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header ">
+            <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
+               href="widget-list.html" >
+            </a>
+            <a class="navbar-brand">Video Editor</a>
+            <p class="navbar-text pull-right">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                   class="navbar-link">
+          <span class="glyphicon glyphicon-ok">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input class="form-control"
+           id="name"
+           ng-model="model.wigdet.name"
+           placeholder="Twitter"/>
+    <label for="text">Text</label>
+    <input class="form-control"
+           id="text"
+           vng-model="model.wigdet.text"
+           placeholder="US Senate Reaches Compromise"/>
+    <label for="url">URL</label>
+    <input class="form-control"
+           id="url"
+           ng-model="model.wigdet.url"
+           placeholder="https://docs.google.com/document/d/1Xq-d8gEPmqGv3JElKocPiNsj8Ft82SY3yNOREHt6r2U/edit"/>
+    <label for="width">Width</label>
+    <input class="form-control"
+           id="width"
+           ng-model="model.wigdet.width"
+           placeholder=""/>
+
+    <a href = "model.deleteWidget(model.widgetId)"
+       class="btn btn-block btn-danger"> Delete</a>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <div class="row navbar-text pull-right">
+            <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+

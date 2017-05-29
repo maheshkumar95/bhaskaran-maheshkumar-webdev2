@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Image Editor
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input class="form-control"
+           placeholder="facebook"
+           ng-model="model.widget.name"
+           id="name"/>
+
+    <label for="text">Text</label>
+    <input class="form-control"
+           placeholder="facebook"
+           ng-model="model.widget.text"
+           id="text"/>
+
+    <label for="size">Size</label>
+    <select id="size" class="form-control" ng-model="model.widget.size">
+        <option>1 (X-Large)</option>
+        <option>2 (Larger)</option>
+        <option>3 (Large)</option>
+        <option>4 (Medium)</option>
+        <option>5 (Small)</option>
+        <option>6 (Smallest)</option>
+    </select>
+
+    <a href="model.deleteWidget(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
+
+</div>
+

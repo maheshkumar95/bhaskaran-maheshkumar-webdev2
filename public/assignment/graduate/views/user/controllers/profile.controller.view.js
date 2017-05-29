@@ -1,13 +1,15 @@
-(function(){
+(function () {
     angular
-        .module("WAM")
-        .controller("profileController",profileController);
+        .module('WAM')
+        .controller('profileController', profileController);
 
     function profileController($location, $routeParams, userService) {
-        var model=this;
 
-        var userId=$routeParams['userId'];
+        var model = this;
 
-        model.user=userService.findUserById(userId);
+        model.userId = $routeParams['userId'];
+
+        model.user = userService.findUserById(model.userId);
+
     }
 })();

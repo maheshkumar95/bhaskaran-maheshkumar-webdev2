@@ -1,0 +1,90 @@
+
+.navbar.navbar-default a{
+    font-weight: bold;
+    color:blue;
+}
+
+.container {
+    width: 100%;
+}
+
+input.form-control , textarea.form-control , select.form-control {
+    margin-bottom: 5px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top{
+    padding-right: 0px;
+    color:blue;
+
+}
+.container {
+    width: 100%;
+}
+.navbar-text{
+    padding-right: 2px;
+}
+.glyphicon{
+    font-weight: bold;
+}
+
+a{
+    font-weight: bold;
+    text-decoration-color:blue;
+    color:blue;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.navbar-default {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+.navbar-default .navbar-brand {
+    color: #0e1ad2;
+}
+
+.navbar-header{
+    width: 100%;
+}
+.navbar-brand{
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px 15px;
+}
+
+
+
+
+
+
+.navbar-default .navbar-link {
+    color: #0a2def;
+}
+
+.navbar.navbar-default a {
+    color: #0a2def;
+}
+
+.wd-widget {
+    margin-bottom: 10px;
+}
+.wd-widget > iframe {
+    padding-bottom:315px;
+}
+.wd-widget > img {
+    width:100%;
+}
+
+.wd-widget > .wd-widget-toolbar {
+    position: absolute;
+    right:15px;
+    background: white;
+    opacity: 0.9;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+}
