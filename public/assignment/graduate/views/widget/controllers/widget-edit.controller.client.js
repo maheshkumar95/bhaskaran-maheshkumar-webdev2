@@ -6,8 +6,11 @@
     function widgetEditController($routeParams, $location, widgetService) {
         var model = this;
 
-
+        model.pageId=$routeParams['pageId'];
+        model.websiteId=$routeParams['websiteId'];
+        model.userId=$routeParams['userId'];
         model.widgetId = $routeParams['widgetId'];
+
         model.deleteWidget = deleteWidget;
 
 
@@ -18,14 +21,13 @@
         init();
 
         function deleteWidget(widgetId) {
-            console.log("success");
             widgetService.deleteWidget(widgetId);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId +'/page/'+model.pageId +'/widget');
+            $location.url('/user/'+model.userId +'/website/'+model.websiteId +'/page/'+model.pageId +'/widget');
         }
 
 
-        function updateWidget(widgetId, widget) {
-            widgetService.updateWidget(model.widgetId);
+        function updateWidget(widgetId) {
+            widgetService.updateWidget(widgetId);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page'+model.pageId +'/widget');
         }
 

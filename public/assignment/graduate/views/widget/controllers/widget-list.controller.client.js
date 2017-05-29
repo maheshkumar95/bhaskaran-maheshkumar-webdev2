@@ -3,7 +3,7 @@
         .module('WAM')
         .controller('widgetListController', widgetListController);
 
-    function widgetListController($sce,$routeParams) {
+    function widgetListController($sce,$location,$routeParams) {
         var model = this;
         model.pageId=$routeParams['pageId'];
         model.websiteId=$routeParams['websiteId'];
@@ -48,7 +48,7 @@
             embedUrl += linkUrlParts[linkUrlParts.length - 1];
             return $sce.trustAsResourceUrl(embedUrl);
         }
-
+        
         function trust(html) {
             // scrubbing the html
             return $sce.trustAsHtml(html);

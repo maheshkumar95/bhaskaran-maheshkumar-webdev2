@@ -25,9 +25,9 @@
 
         //function findWidgetById(widgetId){
 
-        //
+          //
 
-        // }
+       // }
 
         function deleteWidget(widgetId) {
             var widget = findWidgetById(widgetId);
@@ -39,51 +39,29 @@
             for (var w in widgets)
             {
                 if(widgetId === widgets[w]._id)
-                {
-                    return widgets[w];
-                }
+                 {
+                     return widgets[w];
+                 }
             }
 
         }
 
 
 
-        function updateWidget(widgetId,widget){
+        function updateWidget(widgetId){
 
             for(var w in widgets){
                 if(widgets[w]._id === widgetId){
 
-                    if(widget.widgetType=== "HEADING"){
-
-                        widgets[w].name=widget.name;
-                        widgets[w].text=widget.text;
-                        widgets[w].size=widget.size;
-
-                    }
-                    else if(widget.widgetType=== "IMAGE"){
-                        widgets[w].name=widget.name;
-                        widgets[w].text=widget.text;
-                        widgets[w].upload=widget.file;
-
-                    }
-                    else if(widget.widgetType=== "YOUTUBE"){
-
-                        widgets[w].name=widget.name;
-                        widgets[w].text=widget.text;
-                        widgets[w].url=widget.url;
-                        widgets[w].width=widget.width;
-
-                    }
-                    else if(widget.widgetType=== "HTML" ){
-                        widgets[w].name=widget.name;
-                        widgets[w].text=widget.text;
-                        widgets[w].url=widget.url;
-                        widgets[w].width=widget.width;
-
-                    }
+                    widgets[w].name=widget.name;
+                    widgets[w].text=widget.text;
+                    widgets[w].size=widget.size;
+                    widgets[w].url=widget.url;
+                    widgets[w].width=widget.width;
+                    widgets[w].file=widget.file;
                 }
-            }
-        }}
+        }
+    }}
 
 
 })();

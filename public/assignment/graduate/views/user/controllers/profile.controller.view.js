@@ -2,7 +2,7 @@
     angular
         .module('WAM')
         .controller('profileController', profileController);
-
+    
     function profileController($location, $routeParams, userService) {
 
         var model = this;

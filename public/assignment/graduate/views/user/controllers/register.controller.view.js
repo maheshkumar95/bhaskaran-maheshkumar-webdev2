@@ -2,7 +2,7 @@
     angular
         .module('WAM')
         .controller('registerController', registerController);
-
+    
     function registerController($location, userService) {
 
         var model = this;
@@ -22,7 +22,7 @@
             }
 
             var found = userService.findUserByUsername(username);
-
+            
             if(found !== null) {
                 model.error = "sorry, that username is taken";
             } else {

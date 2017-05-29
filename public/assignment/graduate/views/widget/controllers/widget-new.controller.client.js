@@ -4,11 +4,14 @@
         .controller('widgetNewController', widgetNewController);
 
     function widgetNewController($routeParams,
-                                 $location,
-                                 websiteService) {
+                                  $location,
+                                  websiteService) {
         var model = this;
 
-        model.pageId = $routeParams['pageId'];
+        model.pageId=$routeParams['pageId'];
+        model.websiteId=$routeParams['websiteId'];
+        model.userId=$routeParams['userId'];
+
         model.createWidget = createWidget;
 
         function init() {
@@ -17,7 +20,7 @@
         init();
 
         function createWidget(widget) {
-            widget.pageId = model.pageId;
+            widget.widgetId = model.pageId;
             widgetService.createWidget(widget);
             $location.url('/user/'+model.userId+'/website'+model.websiteId + '/page'+model.pageId +'/widget');
         }

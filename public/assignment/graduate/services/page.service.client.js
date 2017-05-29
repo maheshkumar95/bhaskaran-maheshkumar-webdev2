@@ -40,7 +40,7 @@
             }
         }
 
-        function createPage(Page){
+        function createPage(page){
             page._id =(new Date()).getTime() + "";
             pages.push(page);
         }

@@ -4,8 +4,8 @@
         .controller('pageEditController', pageEditController);
 
     function pageEditController($routeParams,
-                                $location,
-                                pageService) {
+                                   $location,
+                                   pageService) {
         var model = this;
 
 
@@ -30,5 +30,5 @@
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
 
-    }
+        }
 })();

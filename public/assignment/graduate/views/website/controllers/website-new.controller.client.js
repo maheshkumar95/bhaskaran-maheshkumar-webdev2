@@ -2,10 +2,10 @@
     angular
         .module('WAM')
         .controller('websiteNewController', websiteNewController);
-
+    
     function websiteNewController($routeParams,
-                                  $location,
-                                  websiteService) {
+                                   $location,
+                                   websiteService) {
         var model = this;
 
         model.userId = $routeParams['userId'];

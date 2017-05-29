@@ -2,7 +2,7 @@
     angular
         .module('WAM')
         .controller('websiteEditController', websiteEditController);
-
+    
     function websiteEditController($routeParams,
                                    $location,
                                    websiteService) {

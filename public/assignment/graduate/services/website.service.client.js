@@ -2,7 +2,7 @@
     angular
         .module('WAM')
         .service('websiteService', websiteService);
-
+    
     function websiteService() {
         this.findAllWebsitesForUser = findAllWebsitesForUser;
         this.findWebsiteById = findWebsiteById;
@@ -41,7 +41,7 @@
             var index = websites.indexOf(website);
             websites.splice(index, 1);
         }
-
+        
         function findWebsiteById(websiteId) {
             return websites.find(function (website) {
                 return website._id === websiteId;

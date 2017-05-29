@@ -2,7 +2,7 @@
     angular
         .module('WAM')
         .factory('userService', userService);
-
+    
     function userService() {
         var users = [
             {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
