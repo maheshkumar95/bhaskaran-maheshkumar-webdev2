@@ -9,6 +9,7 @@
         this.findWidgetById = findWidgetById;
         this.deleteWidget = deleteWidget;
         this.updateWidget = updateWidget;
+        this.createWidget = createWidget;
 
 
         var widgets = [
@@ -22,12 +23,6 @@
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
-
-        //function findWidgetById(widgetId){
-
-          //
-
-       // }
 
         function deleteWidget(widgetId) {
             var widget = findWidgetById(widgetId);
@@ -46,6 +41,10 @@
 
         }
 
+        function createWidget(widgetType){
+            widget._id = (new Date()).getTime() + "";
+            widgets.push(widget);
+        }
 
 
         function updateWidget(widgetId){

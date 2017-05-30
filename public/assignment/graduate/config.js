@@ -67,8 +67,8 @@
 
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/new', {
                 templateUrl: 'views/widget/templates/widget-new.view.client.html',
-                //controller: 'widgetNewController',
-                //controllerAs: 'model'
+                controller: 'widgetNewController',
+                controllerAs: 'model'
             })
 
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId', {

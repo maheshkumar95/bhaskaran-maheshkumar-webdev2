@@ -11,7 +11,9 @@
         model.userId=$routeParams['userId'];
         model.widgetId = $routeParams['widgetId'];
 
+
         model.deleteWidget = deleteWidget;
+
 
 
         function init() {
@@ -28,7 +30,7 @@
 
         function updateWidget(widgetId) {
             widgetService.updateWidget(widgetId);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page'+model.pageId +'/widget');
+            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page' +model.pageId +'/widget');
         }
 
     }
