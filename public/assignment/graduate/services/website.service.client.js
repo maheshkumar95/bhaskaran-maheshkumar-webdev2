@@ -23,11 +23,11 @@
 
 
 
-        function updateWebsite(websiteId){
+        function updateWebsite(website){
             for(var w in websites){
-                if(webistes[w]._id === websiteId){
+                if(websites[w]._id === website._id){
                     websites[w].name = website.name;
-                    websites[w].description=website.description;
+                    websites[w].description = website.description;
                 }
             }
         }

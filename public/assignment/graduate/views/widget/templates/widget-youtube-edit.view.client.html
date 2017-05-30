@@ -4,11 +4,11 @@
     <div class="container-fluid">
         <div class="navbar-header ">
             <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
-               href="widget-list.html" >
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
             </a>
             <a class="navbar-brand">Video Editor</a>
             <p class="navbar-text pull-right">
-                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                <a ng-click="model.createWidget(model.widget)"
                    class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>

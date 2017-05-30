@@ -3,12 +3,11 @@
     <div class="container-fluid">
         <div class="navbar-header ">
             <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
-               href="widget-list.html" >
+               href="#!/user/{{model.userId}}/website">
             </a>
             <a class="navbar-brand">Choose Widget</a>
             <p class="navbar-text pull-right">
-                <a href="widget-list.html"
-                   class="navbar-link">
+                <a class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -19,19 +18,19 @@
 
 
 <div class = "wd-widget">
-    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+    <a ng-click="model.createWidget('HEADING')">
     <h3>Header</h3></a></div>
 
 
 <div class="wd-widget">
-    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+    <a ng-click="model.createWidget('IMAGE')">
         <h3> Image</h3>
     </a>
 </div>
 
 
 <div class="wd-widget">
-    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+    <a ng-click="model.createWidget('YOUTUBE')">
         <h3> Youtube</h3>
     </a>
 </div>

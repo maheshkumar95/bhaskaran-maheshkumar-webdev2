@@ -13,24 +13,24 @@
 
 
         model.deleteWidget = deleteWidget;
+        model.updateWidget = updateWidget;
 
 
 
         function init() {
             model.widget = widgetService.findWidgetById(model.widgetId);
-            console.log("Hello");
         }
         init();
 
         function deleteWidget(widgetId) {
             widgetService.deleteWidget(widgetId);
-            $location.url('/user/'+model.userId +'/website/'+model.websiteId +'/page/'+model.pageId +'/widget');
+            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/'+model.pageId +'/widget');
         }
 
 
-        function updateWidget(widgetId) {
-            widgetService.updateWidget(widgetId);
-            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page' +model.pageId +'/widget');
+        function updateWidget(widget) {
+            widgetService.updateWidget(widget);
+            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/' +model.pageId +'/widget');
         }
 
     }

@@ -4,11 +4,11 @@
     <div class="container-fluid">
         <div class="navbar-header ">
             <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
-               href="../website/website-list.html" >
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
             </a>
             <a class="navbar-brand">New Page</a>
             <p class="navbar-text pull-right">
-                <a href="page-list.h"
+                <a ng-click="model.createPage(page)"
                    class="navbar-link">
                         <span class="glyphicon glyphicon-ok">
                         </span>
