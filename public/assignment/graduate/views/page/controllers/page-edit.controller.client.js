@@ -13,22 +13,36 @@
         model.userId = $routeParams['userId'];
         model.websiteId = $routeParams['websiteId'];
         model.deletePage = deletePage;
-        model.updatePage=updatePage;
+        model.updatePage = updatePage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.websiteId);
-            model.page = pageService.findPageById(model.pageId);
+           // model.pages = pageService.findPageByWebsiteId(model.websiteId);
+            pageService
+                .findPageById(model.pageId)
+                .then(function(pages){
+                    model.pages=pages;
+                });
+
         }
         init();
 
         function deletePage(pageId) {
-            pageService.deletePage(pageId);
-            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page');
+            pageService
+                .deletePage(model.pageId)
+                .then(function(){
+                    $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page');
+
+                });
+
         }
 
         function updatePage(page) {
-            pageService.updatePage(page);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+            pageService
+                .updatePage(model.pageId,page)
+                .then(function(){
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+
+                });
         }
 
         }

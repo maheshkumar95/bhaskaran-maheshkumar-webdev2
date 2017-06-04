@@ -9,9 +9,16 @@
         model.userId=$routeParams['userId'];
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.websiteId);
+            //model.pages = pageService.findPageByWebsiteId(model.websiteId);
+            pageService
+                .findPageByWebsiteId(model.websiteId)
+                .then(renderPages);
         }
         init();
+
+        function renderPages(pages) {
+            model.pages = pages;
+        }
     }
 
 })();

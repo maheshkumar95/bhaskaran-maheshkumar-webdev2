@@ -4,7 +4,7 @@
         .service('pageService', pageService);
 
 
-    function pageService() {
+    function pageService($http) {
         this.findPageByWebsiteId = findPageByWebsiteId;
         this.findPageById = findPageById;
         this.deletePage= deletePage;
@@ -13,49 +13,47 @@
 
 
 
-        var pages = [{"_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem"},
-            {"_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem"},
-            {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}];
+        function findPageByWebsiteId(websiteId) {
 
-
-        function findPageByWebsiteId(website_Id) {
-            var results = [];
-            for (var v in pages) {
-                if (pages[v].websiteId === website_Id) {
-                    pages[v].created = new Date();
-                    pages[v].accessed = new Date();
-
-                    results.push(pages[v]);
-                }
-            }
-            return results;
+            var url = "/api/assignment/graduate/user/:userId/website/"+websiteId +"/page";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
-        function updatePage(pageId){
-            for(var w in pages){
-                if(pages[w]._id === pageId){
-                    pages[w].name = page.name;
-                    pages[w].title = page.title;
-                }
-            }
+        function updatePage(pageId,page){
+
+            var url = "/api/assignment/graduate/page/"+pageId;
+            return $http.put(url,page)
+                .then(function(response) {
+                    return response.data;
+                });
         }
 
         function createPage(page){
-            page._id =(new Date()).getTime() + "";
-            pages.push(page);
+            var url="/api/assignment/graduate/website/:websiteId/page";
+            return $http.post(url,page)
+                .then(function (response) {
+                    return response.data;
+                });
+
         }
 
         function deletePage(pageId) {
-            var page = findPageById(pageId);
-            var index = pages.indexOf(page);
-            pages.splice(index, 1);
+            var url ="/api/assignment/graduate/page/"+pageId;
+            return $http.delete(url)
+                .then(function(response) {
+                    return response.data;
+                });
         }
 
-        function findPageById(pageid){
-            return pages.find(function (page) {
-                return page._id === pageid;
-            });
-
+        function findPageById(pageId){
+            var url="/api/assignment/graduate/page/"+pageId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
 
