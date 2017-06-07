@@ -1,71 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MovieApp">
 <head>
     <meta charset="UTF-8">
     <title>Project Home Page</title>
 </head>
 <body>
-    <h1>Online Basketball Website</h1>
-    <h3>Problem Statement</h3>
-    <p>This website eliminates the need to manage player information and match schedules among coaches and players by organizing data in a coherent manner. </p>
-    <h3> Description</h3>
-    <p> The online website contains information the all the basketball teams in the NBA league. The website lists each team, players of the team, coaches and managers individually. The website holds information about each player, his history, franchises he has been a part of, health, performance in the current season and the previous seasons, diet and training schedules. It also contains information about the coaches, their history and responsibilities.
-        The website is managed by an admin who performs CRUD operations. The fans and spectators are the anonymous users of the website and can read not all information but some information about the players and the staff associated with each team. Coaches have access to all information of each player in his team. Coaches can perform CRUD operations on training schedules, match schedules, match updates and the performance rating of each player in his team in a particular game. The players can read training schedules, match schedules, match updates and the feedback given by the coaches at the end of each game. Coaches can also read information on other players in other teams but cannot edit or delete any information. Players can also read information on other players in other teams but have no rights to perform CRUD operations on other teams. At the end of each season the admin can perform CRUD operations to update each team with the changes made during the auctions and can add additional features which were implemented by the NBA at the start of each season. These changes are update before the start of each season and the changes are available for view to the players and the coaches of each team. These changes are made available to the anonymous users of the website once the team lists are finalized and updated.
-    </p>
-    <h3>Users of the website:</h3>
-    <ul>
-        <li>Managers and coaches</li>
-        <li>Players</li>
-        <li>Spectators</li>
-    </ul>
-    <h3>Goals of each user: </h3>
-    <ul>
-        <li><b>Managers and coaches -</b></li>
-        <ol>
-            <li>Keep track of each player’s performance</li>
-            <li>Schedule training</li>
-            <li>Update match fixtures</li>
-        </ol>
-        <li><b>Players -</b></li>
-        <ol>
-            <li>Keep track of match schedules and training schedules</li>
-            <li>Notified of team changes</li>
-            <li>Gather information on other teams</li>
-        </ol>
-        <li><b>Spectators -</b></li>
-        <ol>
-            <li>Get scores of games</li>
-            <li>View player information</li>
-            <li>History of each player</li>
-        </ol>
-    </ul>
+
+<script src="vendor/angular/angular.min.js"></script>
+<script src="vendor/angular/angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="config.js"></script>
 
 
-    <h3>Relationship between users: </h3>
-    <ul>
-        <li><b>Managers and coaches -</b></li>
+<!-- movie -->
+<script src="graduate/views/movie/controllers/movie-search.controller.client.js"></script>
+<script src ="graduate/services/movie-search.service.client.js"></script>
 
-        <ol>
-            <li>one to many relationship with players</li>
-            <li>many to many relationship with spectators</li>
-        </ol>
 
-        <li><b>Players -</b></li>
-        <ol>
-            <li>many to one relationship with coaches</li>
-            <li>many to many relationships with spectators</li>
-        </ol>
-
-        <li><b>Spectators -</b></li>
-        <ol>
-            <li>many to many relationship with players</li>
-            <li>many to many relationship with coaches</li>
-
-        </ol>
-    </ul>
+<link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="vendor/bootstrap/theme.css" rel="stylesheet">
+<link href="../../css/style.css" rel="stylesheet">
 
 
 
+
+
+<div ng-view>
+
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+<div class="container">
+    <div class="row navbar-text pull-right">
+        <a href="#">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+    </div>
+</div>
+</nav>
 
 </body>
 </html>

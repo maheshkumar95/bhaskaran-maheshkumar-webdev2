@@ -8,7 +8,7 @@
             </a>
             <a class="navbar-brand">Video Editor</a>
             <p class="navbar-text pull-right">
-                <a ng-click="model.createWidget(model.widget)"
+                <a ng-click="model.updateWidget(model.widget)"
                    class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
@@ -41,6 +41,7 @@
            id="width"
            ng-model="model.wigdet.width"
            placeholder=""/>
+
 
     <a ng-click = "model.deleteWidget(model.widgetId)"
        class="btn btn-block btn-danger"> Delete</a>

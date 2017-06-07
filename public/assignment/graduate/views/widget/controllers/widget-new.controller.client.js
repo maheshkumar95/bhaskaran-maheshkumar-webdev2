@@ -14,20 +14,16 @@
 
         model.createWidget = createWidget;
 
-        /*function init() {
-            //model.widgets = widgetService.findAllWidgetsByPageId(model.pageId);
-        }
-        init();
-*/
-        function createWidget() {
-            widget = {};
-          //  var widgetid = widgetService.createWidget(widgetType, model.pageId)._id;
+
+        function createWidget(widgetType) {
+            //  var widgetid = widgetService.createWidget(widgetType, model.pageId)._id;
+            widget={};
+            widget.widgetType = widgetType;
             widgetService
-                .createWidget(model.pageId)
+                .createWidget(model.pageId,widget)
                 .then(function(widget){
-                    var widgetId=widget._id;
-                    console.log(widgetId);
-                    $location.url('/user/'+model.userId+'/website/'+model.websiteId +'/page/'+model.pageId +'/widget/' +widgetId);
+                    var widgetId= widget._id;
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId +'/page/'+model.pageId+'/widget/'+widgetId);
                 });
 
 

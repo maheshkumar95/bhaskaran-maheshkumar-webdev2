@@ -15,14 +15,24 @@
 
 
         function init() {
-           // model.websites = websiteService.findAllWebsitesForUser(model.userId);
-            //model.website = websiteService.findWebsiteById(model.websiteId);
+            websiteService.findAllWebsitesForUser(model.userId)
+                .then(renderAllWebsites);
+            websiteService.findWebsiteById(model.websiteId)
+                .then(renderWebsiteById);
             websiteService
                 .findWebsiteById(model.websiteId)
                 .then(renderWebsite, errorWebsite);
 
         }
         init();
+
+        function renderWebsiteById(website){
+            model.web=website;
+        }
+
+        function renderAllWebsites(websites){
+            model.websites=websites;
+        }
 
 
         function updateWebsite(website) {

@@ -11,15 +11,26 @@
         model.userId = $routeParams['userId'];
         model.createWebsite = createWebsite;
 
-        function createWebsite(website){
-        website.developerId = model.userId;
-        websiteService
-            .createWebsite(website)
-            .then(function(){
-                $location.url('/user/'+model.userId+'/website');
+        function init(){
+            websiteService
+                .findAllWebsitesForUser(model.userId)
+                .then(renderAllWebsites);
+        }
+         init();
 
-            });
+        function createWebsite(website) {
+            website.developerId = model.userId;
+            websiteService
+                .createWebsite(website)
+                .then(function () {
+                    $location.url('/user/' + model.userId + '/website');
+                });
+        }
+
+        function renderAllWebsites(websites){
+            model.websites = websites;
+            }
 
 
-    }}
+    }
 })();

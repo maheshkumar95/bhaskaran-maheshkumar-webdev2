@@ -3,7 +3,7 @@
         .module('WAM')
         .controller('flickrImageSearchController', flickrImageSearchController);
 
-    function flickrImageSearchController(flickrService,$routeParams,$location) {
+    function flickrImageSearchController(flickrService,$routeParams,$location, widgetService) {
         var model = this;
         model.websiteId=$routeParams['websiteId'];
         model.pageId=$routeParams['pageId'];
@@ -15,9 +15,22 @@
         model.searchPhotos=searchPhotos;
         model.selectPhoto=selectPhoto;
 
+        function init() {
+            widgetService
+                .findWidgetById(model.widgetId)
+                .then(renderWidget);
+        }
+        init();
+
+        function renderWidget(widget)
+        {
+            model.widget=widget;
+        }
+
         function selectPhoto(photo){
-           var photos=flickrService
-                .selectPhoto(photo,model.websiteId,model.pageId,model.userId);
+           flickrService
+                .selectPhoto(photo,model.websiteId,model.pageId,model.userId, model.widget);
+
                 $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/' +model.pageId +'/widget');
 
         }

@@ -23,25 +23,12 @@
             widgetService
                 .findAllWidgetsForPage(model.pageId)
                 .then(renderWidgets);
-
         }
         init();
 
-        /*function wdDraggable(){
-            widgetService.linkFunction(element,model.pageId)
-                .then(sortable);
-            return {
-                link:linkFunction
-            }
-        }*/
 
-
-        /*function sortable(){
-            model.widgets=$(element).sortable;
-        }*/
         function renderWidgets(widgets) {
             model.widgets = widgets;
-           // $('#widget-list').sortable;
         }
 
         function widgetUrl(widget) {

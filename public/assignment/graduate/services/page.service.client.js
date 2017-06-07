@@ -23,7 +23,6 @@
         }
 
         function updatePage(pageId,page){
-
             var url = "/api/assignment/graduate/page/"+pageId;
             return $http.put(url,page)
                 .then(function(response) {
@@ -55,8 +54,5 @@
                     return response.data;
                 });
         }
-
-
-
     }
 })();

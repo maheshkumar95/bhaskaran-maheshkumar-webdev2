@@ -15,8 +15,8 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div  id="widget-list">
+<div wbdv-sortable class="container-fluid">
+
     <div ng-repeat="widget in model.widgets" class="wd-widget">
         <div class="wd-widget-toolbar">
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
@@ -42,5 +42,5 @@
         <!--</div>-->
     </div>
 </div>
-</div>
+
 <div ng-include="'views/common/footer.view.client.html'"></div>

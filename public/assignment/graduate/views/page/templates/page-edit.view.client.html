@@ -38,7 +38,7 @@
             <li ng-repeat="page in model.pages" class="list-group-item">
                 <div class="row">
                     <div class="col-lg-5 col-md-8 col-xs-11">
-                        <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                             {{page.name}}
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                         {{page.accessed | date}}
                     </div>
                     <div class="col-xs-1">
-                        <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                             <span class="glyphicon glyphicon-cog pull-right"></span>
                         </a>
                     </div>

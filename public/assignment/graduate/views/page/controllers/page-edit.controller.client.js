@@ -16,11 +16,14 @@
         model.updatePage = updatePage;
 
         function init() {
-           // model.pages = pageService.findPageByWebsiteId(model.websiteId);
-            pageService
-                .findPageById(model.pageId)
+            pageService.findPageByWebsiteId(model.websiteId)
                 .then(function(pages){
                     model.pages=pages;
+                });
+            pageService
+                .findPageById(model.pageId)
+                .then(function(page){
+                    model.page=page;
                 });
 
         }
@@ -41,7 +44,6 @@
                 .updatePage(model.pageId,page)
                 .then(function(){
                     $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
-
                 });
         }
 

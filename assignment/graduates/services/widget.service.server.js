@@ -3,15 +3,13 @@ const app = require('../../../express');
 var multer = require('multer'); // npm install multer --save
 var upload = multer({ dest: __dirname+'/../../../public/assignment/graduate/uploads' });
 
-app.post ("/api/upload", upload.single('myFile'), uploadImage);
+app.post ("/api/assignment/graduate/uploads", upload.single('myFile'), uploadImage);
 app.get ("/api/assignment/graduate/page/:pageId/widget",findAllWidgetsForPage);
 app.get ("/api/assignment/graduate/widget/:widgetId",findWidgetById);
 app.put("/api/assignment/graduate/widget/:widgetId",updateWidget);
 app.delete("/api/assignment/graduate/widget/:widgetId",deleteWidget);
 app.post("/api/assignment/graduate/page/:pageId/widget/",createWidget);
-//app.put("/api/assignment/graduate/page/:pageId/widget/:widgetId",linkFunction);
-
-
+app.put("/api/page/:pageId/widget", orderWidgets);
 
 
 var widgets = [
@@ -24,20 +22,28 @@ var widgets = [
         "url": "https://youtu.be/AM2Ivdi9c4E" }];
 
 
-//function linkFunction(req,res){
-//    var widget=req.body;
-//}
-
-function createWidget(req,res){
-    var widget=req.body;
-    var widgetType = req.body.widgetType;
-    widget._id = (new Date()).getTime() + "";
-    widget.pageId = req.params.pageId;
-    widget.widgetType = widgetType;
-    widgets.push(widget);
-    res.send(widget);
+function orderWidgets(req,res){
+    var pageId = req.params.pageId;
+    var start = req.query.initial;
+    var end = req.query.final;
+    var count = 0;
+    for(var w in widgets)
+    {
+        if(widgets[w].pageId === pageId)
+        {
+            if (count === start)
+            {
+                start = w;
+            }
+            if(count === end)
+            {
+                end = w;
+            }
+            count ++;
+        }
+    }
+    widgets.splice(end, 0, widgets.splice(start, 1)[0]);
 }
-
 
 function findWidgetById(req,res){
     for (var w in widgets) {
@@ -51,13 +57,13 @@ function findWidgetById(req,res){
 function uploadImage(req, res) {
 
     var widgetId      = req.body.widgetId;
+
     var width         = req.body.width;
     var myFile        = req.file;
 
     var userId = req.body.userId;
     var websiteId = req.body.websiteId;
     var pageId = req.body.pageId;
-
 
     var originalname  = myFile.originalname; // file name on user's computer
     var filename      = myFile.filename;     // new file name in upload folder
@@ -66,11 +72,12 @@ function uploadImage(req, res) {
     var size          = myFile.size;
     var mimetype      = myFile.mimetype;
 
-    widget = findWidgetById(widgetId);
+   // widget = findWidgetById(widgetId);
+    widget={};
     widget.url = '/assignment/graduate/uploads/'+filename;
 
    // var callbackUrl   = "/assignment/graduate/index.html#!/widget/345";
-    var callbackUrl = "/assignment/graduate/user/"+userId+"/website/"+websiteId +"/page/"+pageId+"/widget";
+    var callbackUrl = "/assignment/graduate/index.html#!/user/"+userId+"/website/"+websiteId +"/page/"+pageId+"/widget/"+widgetId;
     res.redirect(callbackUrl);
 }
 
@@ -90,7 +97,7 @@ function deleteWidget(req,res){
 }
 
 function updateWidget(req,res) {
-    var widget=req.body;
+    var widget = req.body;
     for (var w in widgets) {
         if (widgets[w]._id === widget._id) {
             widgets[w]=widget;
@@ -110,4 +117,12 @@ for(var v in widgets){
         results.push(widgets[v]);
     }
 }res.send(results);
+}
+
+function createWidget(req,res){
+    var widget = req.body;
+    widget._id = (new Date()).getTime() + "";
+    widget.pageId = req.params.pageId;
+    widgets.push(widget);
+    res.send(widget);
 }

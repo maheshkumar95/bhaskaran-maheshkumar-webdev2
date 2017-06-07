@@ -2,8 +2,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
+            <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
+            </a>
             <a class="navbar-brand" href="#">
-                Image Editor
+                Heading Editor
             </a>
             <p class="navbar-text pull-right">
                 <a ng-click = "model.updateWidget(model.widget)" class="navbar-link">
@@ -29,14 +32,12 @@
            id="text"/>
 
     <label for="size">Size</label>
-    <select id="size" class="form-control" ng-model="model.widget.size">
-        <option>1 (X-Large)</option>
-        <option>2 (Larger)</option>
-        <option>3 (Large)</option>
-        <option>4 (Medium)</option>
-        <option>5 (Small)</option>
-        <option>6 (Smallest)</option>
-    </select>
+    <input ng-model="model.widget.size"
+            id = "size"
+            value = "2"
+            type="number"
+            class="form-control"/>
+
 
     <a ng-click="model.deleteWidget(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
 
