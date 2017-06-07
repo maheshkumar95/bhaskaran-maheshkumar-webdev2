@@ -31,11 +31,11 @@
            ng-model="model.widget.text"
            id="text"/>
 
-<div class="container-fluid">
+
     <a class="btn btn-block btn-info" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
         Search
     </a>
-</div>
+
 
     <form action="/api/assignment/graduate/uploads"  method="post" enctype="multipart/form-data">
         <input  name="myFile"    type="file" class="form-control"/>
@@ -47,10 +47,6 @@
         <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
     </form>
 
-
-
-    <label for="file">Upload</label>
-    <input id="file" multiple type="file" class="form-control" ng-model="model.widget.file"/>
 
     <a ng-click="model.deleteWidget(model.widgetId)"
        class="btn btn-block btn-danger">Delete</a>

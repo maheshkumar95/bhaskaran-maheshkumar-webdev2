@@ -20,7 +20,7 @@
             <ul class="list-group">
                 <li class="list-group-item active">
                     <div class="row">
-                        <div class="col-lg-5 col-md-8 col-xs-11">
+                        <div class="col-lg-5 col-md-8 col-xs-10">
                             Name
                         </div>
                         <div class="col-lg-3 visible-lg">
@@ -29,14 +29,14 @@
                         <div class="col-md-3 hidden-sm hidden-xs">
                             Accessed
                         </div>
-                        <div class="col-xs-1">
+                        <div class="col-md-1 col-xs-2">
 
                         </div>
                     </div>
                 </li>
                 <li ng-repeat="website in model.websites" class="list-group-item">
                     <div class="row">
-                        <div class="col-lg-5 col-md-8 col-xs-11">
+                        <div class="col-lg-5 col-md-8 col-xs-10">
                             <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
                                 {{website.name}}
                             </a>
@@ -47,7 +47,7 @@
                         <div class="col-md-3 hidden-sm hidden-xs">
                             {{website.accessed | date}}
                         </div>
-                        <div class="col-xs-1">
+                        <div class="col-md-1 col-xs-2">
                             <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>

@@ -41,7 +41,7 @@
                 </li>
                 <li ng-repeat="page in model.pages" class="list-group-item">
                     <div class="row">
-                        <div class="col-lg-5 col-md-8 col-xs-11">
+                        <div class="col-lg-5 col-md-8 col-xs-10">
                             <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
                                 {{page.name}}
                             </a>
@@ -52,7 +52,7 @@
                         <div class="col-md-3 hidden-sm hidden-xs">
                             {{page.accessed | date}}
                         </div>
-                        <div class="col-xs-1">
+                        <div class="col-md-1 col-xs-2">
                             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
