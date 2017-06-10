@@ -1,0 +1,45 @@
+
+
+
+
+<a ng-click="model.selectMovie(movie.imdbID)"> CLICK</a>
+
+
+<div class="container-fluid">
+    <div class="movie">
+        <div class="row">
+            <div class="col-sm-12">
+
+                    <div class="row">
+                        <div class="thumbnail">
+                        <div class="col-sm-6">
+                            <img ng-src="{{model.movie.Poster}}" class="img-thumbnail" width="100%">
+                        </div>
+
+                        <div class="panel-body">
+
+                        <div class="col-sm-6">
+                            <h2 class="header"> {{model.movie.Title}}  ({{model.movie.Year}})</h2>
+                            <h3 class="header">Genre: {{model.movie.Genre}}</h3>
+
+                            <h4>Plot</h4>
+                            <p>{{model.movie.Plot}}</p>
+
+                            <h4> Director:</h4>
+                            <ul class="list-group-item">
+                                {{model.movie.Director}}</ul>
+                            <h4> Writer:</h4>
+                            <ul class="list-group-item">
+                                {{model.movie.Writer}}</ul>
+
+                            <h5>Production</h5>
+                            <p> {{model.movie.Production}}</p>
+                            <h4>Cast</h4>
+                            <ul class="list-group-item">
+                                {{model.movie.Actors}}</ul>
+                        </div>
+
+
+            </div>
+            </div>
+                    </div> </div></div></div></div>

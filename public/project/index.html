@@ -2,6 +2,7 @@
 <html lang="en" ng-app="MovieApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project Home Page</title>
 </head>
 <body>
@@ -13,7 +14,9 @@
 
 
 <!-- movie -->
-<script src="graduate/views/movie/controllers/movie-search.controller.client.js"></script>
+<script src="graduate/views/movie/controllers/movie.controller.client.js"></script>
+<script src="graduate/views/movie/controllers/movie-list.controller.view.client.js"></script>
+
 <script src ="graduate/services/movie-search.service.client.js"></script>
 
 
@@ -22,16 +25,12 @@
 <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="vendor/bootstrap/theme.css" rel="stylesheet">
-<link href="../../css/style.css" rel="stylesheet">
-
-
-
+<link href="css/style.css" rel="stylesheet">
 
 
 <div ng-view>
 
 </div>
-
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
 <div class="container">

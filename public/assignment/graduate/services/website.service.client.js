@@ -15,7 +15,9 @@
             var url = "/api/assignment/graduate/website/" +websiteId;
             return $http.put(url, website)
                 .then(function (response) {
+                    console.log(response.data);
                     return response.data;
+
 
                 });
         }

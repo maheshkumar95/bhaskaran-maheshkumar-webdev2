@@ -9,7 +9,8 @@
         var model = this;
 
         model.userId = $routeParams['userId'];
-        model.createWebsite = createWebsite;
+
+        model.createWebsite=createWebsite;
 
         function init(){
             websiteService
