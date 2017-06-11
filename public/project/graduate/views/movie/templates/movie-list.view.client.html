@@ -6,7 +6,7 @@
 
 
 <div class="container-fluid">
-    <div class="movie">
+
         <div class="row">
             <div class="col-sm-12">
 
@@ -19,27 +19,45 @@
                         <div class="panel-body">
 
                         <div class="col-sm-6">
+
                             <h2 class="header"> {{model.movie.Title}}  ({{model.movie.Year}})</h2>
                             <h3 class="header">Genre: {{model.movie.Genre}}</h3>
 
-                            <h4>Plot</h4>
-                            <p>{{model.movie.Plot}}</p>
+                            <section class="text-justify"><h4>Plot</h4>
+                            <p class="text-justify">{{model.movie.Plot}}</p>
+                            </section>
 
-                            <h4> Director:</h4>
-                            <ul class="list-group-item">
-                                {{model.movie.Director}}</ul>
-                            <h4> Writer:</h4>
-                            <ul class="list-group-item">
-                                {{model.movie.Writer}}</ul>
+                            <section class="text-justify"><h4>Director</h4>
+                                {{model.movie.Director}}</section>
 
-                            <h5>Production</h5>
-                            <p> {{model.movie.Production}}</p>
-                            <h4>Cast</h4>
-                            <ul class="list-group-item">
-                                {{model.movie.Actors}}</ul>
+
+                            <section class="text-justify"><h4>Writer</h4>
+                                {{model.movie.Writer}}
+                                <h5>Production</h5>
+                                <p class="text-justify"> {{model.movie.Production}}</p>
+                            </section>
+
+
+                            <section class="text-justify"><h4>Cast</h4>
+                               {{model.movie.Actors}}</section>
+
+                            <section class="text-justify"><h4>Ratings</h4>
+                                {{model.movie.Ratings}}</section>
+
+                            <section class="text-justify"><h4>Score</h4>
+                                {{model.movie.Metascore}}</section>
+
+                            <section class="text-justify"><h4>imdbRating</h4>
+                                {{model.movie.imdbRating}}</section>
+
+
+
                         </div>
-
-
+                        </div>
             </div>
+
+                    </div>
             </div>
-                    </div> </div></div></div></div>
+        </div>
+    </div>
+</div>

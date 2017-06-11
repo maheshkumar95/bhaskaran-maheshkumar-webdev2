@@ -26,8 +26,8 @@
             return $http.put(url);
 
         }
-        function deleteWidget(widgetId) {
-            var url="/api/assignment/graduate/widget/"+widgetId;
+        function deleteWidget(widgetId,pageId) {
+            var url="/api/assignment/graduate/page/"+pageId+"/widget/"+widgetId;
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;
@@ -56,7 +56,6 @@
 
         function createWidget(pageId,widget){
             var url="/api/assignment/graduate/page/"+pageId+"/widget";
-
             return $http.post(url,widget)
                 .then(function(response) {
                     return response.data;

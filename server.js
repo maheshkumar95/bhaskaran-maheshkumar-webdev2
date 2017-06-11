@@ -15,7 +15,7 @@ app.use(app.express.static(__dirname + '/public'));
 // var todo = require('./lectures/undergraduate/todo/app');
 // todo(app);
 
-require ("./test/app.js")(app);
+// require ("./test/app.js")(app);
 
 require('./assignment/graduates/app');
 

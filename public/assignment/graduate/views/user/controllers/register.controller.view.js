@@ -40,16 +40,6 @@
                     $location.url('/user/' + user._id);
                 });
 
-            // if(found !== null) {
-            //     model.error = "sorry, that username is taken";
-            // } else {
-            //     var newUser = {
-            //         username: username,
-            //         password: password
-            //     };
-            //     newUser = userService.createUser(newUser);
-            //     $location.url('/user/' + newUser._id);
-            // }
         }
     }
 })();

@@ -1,4 +1,7 @@
 
+<ul class="nav navbar-nav">
+    <li><a href="#!/login">Login</a></li>
+    <li><a href="#!/register">Register</a></li></ul>
 <div class="container-fluid" ng-controller="movieController">
     <div class="input-group">
         <input ng-model="searchText"
@@ -17,6 +20,7 @@
 
 
 <div class="container-fluid">
+    <div class="movie">
     <div class="movie">
         <div class="row">
             <div ng-repeat="movie in model.movies">

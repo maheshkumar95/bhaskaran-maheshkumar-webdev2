@@ -5,13 +5,48 @@ var userModel = require('../user/user.model.server');
 
 // api
 websiteModel.findAllWebsites = findAllWebsites;
-websiteModel.createWebsiteForUser = createWebsiteForUser;
+websiteModel.createWebsite = createWebsite;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
-websiteModel.deleteWebsiteFromUser = deleteWebsiteFromUser;
+websiteModel.deleteWebsite = deleteWebsite;
+websiteModel.findWebsiteById=findWebsiteById;
+websiteModel.updateWebsite=updateWebsite;
+websiteModel.addPage=addPage;
+websiteModel.deletePage=deletePage;
+
+
+
+
 
 module.exports = websiteModel;
 
-function deleteWebsiteFromUser(userId, websiteId) {
+function deletePage(websiteId,pageId){
+    return websiteModel
+        .findById(websiteId)
+        .then(function(website){
+            var index = website.pages.indexOf(pageId);
+            website.pages.splice(index, 1);
+            return website.save();
+});
+}
+
+function addPage(websiteId, pageId) {
+    return websiteModel
+        .findById(websiteId)
+        .then(function (website) {
+            website.pages.push(pageId);
+            return website.save();
+        });
+}
+
+function updateWebsite(websiteId, newWebsite) {
+    return websiteModel.update({_id: websiteId}, {$set: newWebsite});
+}
+
+function findWebsiteById(webisteId) {
+    return websiteModel.findById(webisteId);
+}
+
+function deleteWebsite(userId, websiteId) {
     return websiteModel
         .remove({_id: websiteId})
         .then(function (status) {
@@ -27,7 +62,7 @@ function findAllWebsitesForUser(userId) {
         .exec();
 }
 
-function createWebsiteForUser(userId, website) {
+function createWebsite(userId, website) {
     website._user = userId;
     return websiteModel
         .create(website)

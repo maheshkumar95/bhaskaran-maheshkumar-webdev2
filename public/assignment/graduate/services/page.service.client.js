@@ -15,7 +15,7 @@
 
         function findPageByWebsiteId(websiteId) {
 
-            var url = "/api/assignment/graduate/user/:userId/website/"+websiteId +"/page";
+            var url = "/api/assignment/graduate/website/"+websiteId +"/page";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -30,8 +30,8 @@
                 });
         }
 
-        function createPage(page){
-            var url="/api/assignment/graduate/website/:websiteId/page";
+        function createPage(websiteId,page){
+            var url="/api/assignment/graduate/website/"+websiteId+"/page";
             return $http.post(url,page)
                 .then(function (response) {
                     return response.data;
@@ -39,8 +39,8 @@
 
         }
 
-        function deletePage(pageId) {
-            var url ="/api/assignment/graduate/page/"+pageId;
+        function deletePage(pageId,websiteId) {
+            var url ="/api/assignment/graduate/website/" +websiteId+"/page/"+pageId;
             return $http.delete(url)
                 .then(function(response) {
                     return response.data;

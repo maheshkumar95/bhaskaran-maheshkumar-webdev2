@@ -31,7 +31,7 @@
 
         function deletePage(pageId) {
             pageService
-                .deletePage(model.pageId)
+                .deletePage(model.pageId,model.websiteId)
                 .then(function(){
                     $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page');
 

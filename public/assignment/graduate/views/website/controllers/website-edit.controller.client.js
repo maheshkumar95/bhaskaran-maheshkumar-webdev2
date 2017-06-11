@@ -55,7 +55,7 @@
         function deleteWebsite(websiteId){
 
             websiteService
-                .deleteWebsite(model.websiteId)
+                .deleteWebsite(model.websiteId,model.userId)
                 .then(function(){
                     $location.url('/user/'+model.userId+'/website');
                 });
