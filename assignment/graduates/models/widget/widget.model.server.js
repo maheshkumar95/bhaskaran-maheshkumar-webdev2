@@ -25,23 +25,26 @@ function deleteWidget(widgetId,pageId){
             return pageModel
                 .deleteWidget(widgetId,pageId);
         });
-
 }
+
 function findAllWidgetsForPage(pageId){
     return widgetModel
         .find({_page: pageId})
-        .populate('_website')
+        .populate('_page')
         .exec();
 }
 function findWidgetById(widgetId) {
     return widgetModel.findById(widgetId);
 }
+
 function createWidget(pageId,widget){
     widget._page=pageId;
     return widgetModel
         .create(widget)
         .then(function(widget){
-            return pageModel
+            pageModel
                 .addWidget(pageId,widget._id);
+                return widget;
+
         });
 }

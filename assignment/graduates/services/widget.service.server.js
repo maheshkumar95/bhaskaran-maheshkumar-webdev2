@@ -8,7 +8,7 @@ var upload = multer({ dest: __dirname+'/../../../public/assignment/graduate/uplo
 app.get ("/api/assignment/graduate/page/:pageId/widget",findAllWidgetsForPage);
 app.get ("/api/assignment/graduate/widget/:widgetId",findWidgetById);
 app.put("/api/assignment/graduate/widget/:widgetId",updateWidget);
-app.delete("/api/assignment/graduate/widget/:widgetId",deleteWidget);
+app.delete("/api/assignment/graduate/page/:pageId/widget/:widgetId",deleteWidget);
 app.post("/api/assignment/graduate/page/:pageId/widget",createWidget);
 // app.put("/api/page/:pageId/widget", orderWidgets);
 

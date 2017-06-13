@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAM')
+        .module('MovieApp')
         .controller('loginController', loginController);
 
     function loginController($location, userService) {

@@ -4,7 +4,6 @@
         .service('widgetService', widgetService);
 
 
-
     function widgetService($http){
 
         var currentPageId;
@@ -36,7 +35,7 @@
         }
 
         function findWidgetById(widgetId) {
-            var url="/api/assignment/graduate/widget/" +widgetId;
+            var url="/api/assignment/graduate/widget/"+widgetId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -48,7 +47,7 @@
             currentPageId = pageId;
             var url="/api/assignment/graduate/page/"+pageId +"/widget";
             return $http.get(url)
-                .then(function (response) {
+                .then(function(response) {
                     return response.data;
 
                 });

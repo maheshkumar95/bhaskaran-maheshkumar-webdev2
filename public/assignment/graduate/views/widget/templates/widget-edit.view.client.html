@@ -14,8 +14,8 @@
 <div class="container-fluid">
 
     <!--<div ng-repeat="widget in model.widgets">-->
+    <div ng-switch="model.widget.type">
 
-    <div ng-switch="model.widget.widgetType">
         <div ng-switch-when="HEADING">
             <ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"/>
         </div>
