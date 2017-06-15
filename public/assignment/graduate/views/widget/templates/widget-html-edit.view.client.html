@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
+            </a>
+            <a class="navbar-brand" href="#">
+                Heading Editor
+            </a>
+            <p class="navbar-text pull-right">
+                <a ng-click = "model.updateWidget(model.widget)" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+
+<label for="name">Name</label>
+<input class="form-control"
+       placeholder=""
+       ng-model="model.widget.name"
+       id="name"/>
+
+<div ng-model="model.widget.text"
+     text-angular
+     ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+</div>
+
+<a ng-click="model.deleteWidget(model.widgetId)" class="btn btn-block btn-danger">Delete</a>

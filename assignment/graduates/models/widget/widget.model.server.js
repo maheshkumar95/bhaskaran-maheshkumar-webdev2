@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var widgetSchema=require('./widget.schema.server');
+var mongoose =require('mongoose');
+var widgetSchema =require('./widget.schema.server');
 var widgetModel = mongoose.model('GraduateWidgetModel', widgetSchema);
 var userModel = require('../user/user.model.server');
 var websiteModel = require('../website/website.model.server');
@@ -16,7 +16,7 @@ module.exports = widgetModel;
 
 
 function updateWidget(widgetId,widget){
-    return widgetModel.update({_id: widgetId}, {$set: widget});
+    return widgetModel.update({_id: widgetId}, {$set: widget} ,{url:widget.url});
 }
 function deleteWidget(widgetId,pageId){
     return widgetModel
@@ -44,7 +44,7 @@ function createWidget(pageId,widget){
         .then(function(widget){
             pageModel
                 .addWidget(pageId,widget._id);
-                return widget;
+                 return widget;
 
         });
 }

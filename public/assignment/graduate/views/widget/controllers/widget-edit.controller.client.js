@@ -29,9 +29,9 @@
             model.widget=widget;
         }
 
-        function deleteWidget(widgetId,pageId) {
+        function deleteWidget(widget) {
             widgetService
-                .deleteWidget(widgetId,model.pageId)
+                .deleteWidget(model.widgetId,model.pageId)
                 .then(function(){
                     $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/'+model.pageId +'/widget');
                 });

@@ -1,18 +1,19 @@
 (function(){
     angular
         .module('MovieApp')
-        .service('userService', userService);
+        .factory('userService', userService);
 
     function userService($http) {
-        var model =this;
+        var api= {
+            createUser : createUser,
+            findUserByUsername : findUserByUsername
+        };
+        return api;
 
-            model.createUser=createUser;
-            // model.findUserById= findUserById;
-            model.findUserByUsername= findUserByUsername;
             // model.findUserByCredentials= findUserByCredentials;
             // model.deleteUser=deleteUser;
             // model.updateUser=updateUser;
-
+            // model.findUserById= findUserById;
 
         // function deleteUser(userId) {
         //     var url = "/api/assignment/graduate/user/"+userId;

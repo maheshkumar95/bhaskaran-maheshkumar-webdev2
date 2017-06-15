@@ -19,7 +19,7 @@
 </nav>
 
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="widgetEditController">
 
     <label for="name">Name</label>
     <input class="form-control"
@@ -27,15 +27,18 @@
            ng-model="model.wigdet.name"
            placeholder="Twitter"/>
     <label for="text">Text</label>
+
     <input class="form-control"
            id="text"
            ng-model="model.wigdet.text"
            placeholder="US Senate Reaches Compromise"/>
+
     <label for="url">URL</label>
     <input class="form-control"
            id="url"
            ng-model="model.wigdet.url"
            placeholder="https://docs.google.com/document/d/1Xq-d8gEPmqGv3JElKocPiNsj8Ft82SY3yNOREHt6r2U/edit"/>
+
     <label for="width">Width</label>
     <input class="form-control"
            id="width"
@@ -43,7 +46,7 @@
            placeholder=""/>
 
 
-    <a ng-click = "model.deleteWidget(model.widgetId)"
+    <a ng-click ="model.deleteWidget(model.widget)"
        class="btn btn-block btn-danger"> Delete</a>
 </div>
 

@@ -27,13 +27,12 @@
             model.widget=widget;
         }
 
-        function selectPhoto(photo){
-           flickrService
-                .selectPhoto(photo,model.websiteId,model.pageId,model.userId, model.widget);
-
-                $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/' +model.pageId +'/widget');
-
-        }
+        // function selectPhoto(photo){
+        //    flickrService
+        //         .selectPhoto(photo,model.websiteId,model.pageId,model.userId, model.widget);
+        //
+        //            $location.url('/user/'+model.userId +'/website/' +model.websiteId +'/page/' +model.pageId +'/widget/');
+        // }
 
          function searchPhotos(searchTerm) {
             flickrService
@@ -43,6 +42,18 @@
                     data = data.substring(0,data.length - 1);
                     data = JSON.parse(data);
                     model.photos = data.photos;
+                });
+
+        }
+
+        function selectPhoto(photo) {
+            var url = "https://farm" +photo.farm +".staticflickr.com/" +photo.server;
+            url += "/" +photo.id +"_" +photo.secret +"_b.jpg";
+            widget.url = url;
+            widgetService
+                .updateWidget(model.websiteId,model.pageId,model.widgetId,widget)
+                .then(function(){
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId +'/page/'+model.pageId+'/widget/'+widgetId);
                 });
         }
 

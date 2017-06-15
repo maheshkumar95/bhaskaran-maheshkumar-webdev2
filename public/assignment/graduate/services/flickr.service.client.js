@@ -7,21 +7,12 @@
 
     function flickrService($http,widgetService) {
         this.searchPhotos=searchPhotos;
-        this.selectPhoto=selectPhoto;
+        // this.selectPhoto=selectPhoto;
         var key = "982f6ad99c343265512f2b6629c3ad4c";
         var secret = "cb0b4954b32c0cf1";
         var urlBase = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT";
 
-        function selectPhoto(photo,websiteId,pageId,widgetId, widget) {
-            var url = "https://farm" +photo.farm +".staticflickr.com/" +photo.server;
-            url += "/" +photo.id +"_" +photo.secret +"_b.jpg";
-            widget.url = url;
-            widgetService
-                .updateWidget(websiteId, widget)
-                .then(function(photo){
-                    return photo;
-                });
-        }
+
 
 
         function searchPhotos(searchTerm) {
