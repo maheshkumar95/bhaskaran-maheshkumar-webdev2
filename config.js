@@ -18,10 +18,13 @@
                 controller: 'registerController',
                 controllerAs: 'model'
             })
-            .when('/user/:userId', {
+            .when('/profile', {
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'profileController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
             })
             .when('/user/:userId/website', {
                 templateUrl: 'views/website/templates/website-list.view.client.html',
@@ -75,6 +78,11 @@
                 templateUrl: 'views/widget/templates/widget-edit.view.client.html',
                 controller: 'widgetEditController',
                 controllerAs: 'model'
-            })
+            });
+
+    }
+    function checkLoggedIn(userService){
+        userService
+            .loggedin()
     }
 })();

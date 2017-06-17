@@ -1,5 +1,20 @@
 var app = require('../../../express');
 var userModel = require('../models/user/user.model.server');
+var passport      = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(localStrategy));
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var googleConfig = {
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
+};
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+
 
 app.get ('/api/assignment/graduate/user/:userId', findUserById);
 app.get ('/api/assignment/graduate/user', findAllUsers);
@@ -7,6 +22,62 @@ app.post('/api/assignment/graduate/user', createUser);
 app.put ('/api/assignment/graduate/user/:userId', updateUser);
 app.delete ('/api/assignment/graduate/user/:userId', deleteUser);
 
+app.post  ('/api/assignment/graduate/login', passport.authenticate('local'), login);
+app.get   ('/api/assignment/graduate/loggedin', loggedin);
+app.post  ('/api/assignment/graduate/logout', logout);
+app.post  ('/api/assignment/graduate/register', register);
+
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/#/profile',
+        failureRedirect: '/#/login'
+    }));
+
+function localStrategy(username, password, done) {
+    userModel
+        .findUserByCredentials(username, password)
+        .then(function (user) {
+            if(user) {
+                done(null, user);
+            } else {
+                done(null, false);
+            }
+        }, function (error) {
+            done(error, false);
+        });
+}
+
+function login(req, res) {
+    res.json(req.user);
+}
+
+function logout(req, res) {
+    req.logout();
+    res.sendStatus(200);
+}
+
+function register(req, res) {
+    var userObj = req.body;
+    userModel
+        .createUser(userObj)
+        .then(function (user) {
+            req
+                .login(user, function (status) {
+                    res.send(status);
+                });
+        });
+}
+
+function loggedin(req, res) {
+    if(req.isAuthenticated()) {
+        res.json(req.user);
+    } else {
+        res.send('0');
+    }
+}
 
 function deleteUser(req, res) {
     var userId = req.params.userId;
@@ -79,4 +150,59 @@ function findAllUsers(req, res) {
                 res.json(users);
             });
     }
+}
+
+
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(
+            function(user){
+                done(null, user);
+            },
+            function(err){
+                done(err, null);
+            }
+        );
+}
+
+function googleStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByGoogleId(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        google: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
 }

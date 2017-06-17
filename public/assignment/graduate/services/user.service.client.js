@@ -9,10 +9,51 @@
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials,
+            login : login,
+            logout: logout,
+            loggedin: loggedin,
+            register:register,
             deleteUser: deleteUser,
             updateUser: updateUser
         };
         return api;
+
+
+        function register(userObj) {
+            var url = "/api/assignment/graduate/register";
+            return $http.post(url, userObj)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function login(username, password) {
+            var url = "/api/assignment/graduate/login";
+            var credentials = {
+                username: username,
+                password: password
+            };
+            return $http.post(url, credentials)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function logout() {
+            var url = "/api/assignment/graduate/logout";
+            return $http.post(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function loggedin() {
+            var url = "/api/assignment/graduate/loggedin";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
 
         function deleteUser(userId) {
             var url = "/api/assignment/graduate/user/"+userId;
@@ -36,10 +77,7 @@
                 .then(function (response) {
                     return response.data;
                 });
-            // user._id = (new Date()).getTime() + "";
-            // user.created = new Date();
-            // users.push(user);
-            // return user;
+
         }
 
         function findUserByUsername(username) {
@@ -48,13 +86,7 @@
                 .then(function (response) {
                     return response.data;
                 });
-            // var user = users.find(function (user) {
-            //     return user.username === username;
-            // });
-            // if(typeof user === 'undefined') {
-            //     return null;
-            // }
-            // return user;
+
         }
 
         function findUserById(userId) {
