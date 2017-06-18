@@ -3,17 +3,21 @@ var userModel = require('../models/user/user.model.server');
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
     callbackURL  : process.env.GOOGLE_CALLBACK_URL
 };
+
+
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 
@@ -28,14 +32,26 @@ app.get   ('/api/assignment/graduate/loggedin', loggedin);
 app.post  ('/api/assignment/graduate/logout', logout);
 app.post  ('/api/assignment/graduate/register', register);
 
-app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+// app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
 
+// app.get('/auth/google/callback',
+//     passport.authenticate('google', {
+//         successRedirect: '/#/profile',
+//         failureRedirect: '/#/login'
+//     }));
+
+
+
+app.get('/auth/google',
+    passport.authenticate('google', { scope : [ 'https://www.googleapis.com/auth/plus.login',
+        'https://www.googleapis.com/auth/plus.profile.emails.read' ] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/#/profile',
-        failureRedirect: '/#/login'
+        successRedirect: '/assignment/graduate/index.html#!/profile',
+        failureRedirect: '/assignment/graduate/index.html#!/login'
     }));
+
 
 function localStrategy(username, password, done) {
     userModel
