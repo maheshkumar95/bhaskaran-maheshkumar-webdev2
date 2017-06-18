@@ -33,6 +33,7 @@
                 username: username,
                 password: password
             };
+
             return $http.post(url, credentials)
                 .then(function (response) {
                     return response.data;

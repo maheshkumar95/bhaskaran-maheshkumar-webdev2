@@ -2,6 +2,7 @@ var app = require('../../../express');
 var userModel = require('../models/user/user.model.server');
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require("bcrypt-nodejs");
 
 passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
@@ -38,20 +39,21 @@ app.get('/auth/google/callback',
 
 function localStrategy(username, password, done) {
     userModel
-        .findUserByCredentials(username, password)
+        .findUserByUsername(username)
         .then(function (user) {
-            if(user) {
-                done(null, user);
+            if(user && bcrypt.compareSync(password, user.password)) {
+                return done(null, user);
             } else {
-                done(null, false);
+                return done(null, false);
             }
         }, function (error) {
-            done(error, false);
+            return done(error, false);
         });
 }
 
 function login(req, res) {
     res.json(req.user);
+
 }
 
 function logout(req, res) {
@@ -61,6 +63,7 @@ function logout(req, res) {
 
 function register(req, res) {
     var userObj = req.body;
+    userObj.password = bcrypt.hashSync(userObj.password);
     userModel
         .createUser(userObj)
         .then(function (user) {

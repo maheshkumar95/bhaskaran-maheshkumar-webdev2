@@ -5,11 +5,11 @@
 
 
 
-    function widgetListController($sce,$location,$routeParams, widgetService) {
+    function widgetListController($sce,$location,$routeParams,currentUser, widgetService) {
         var model = this;
         model.pageId=$routeParams['pageId'];
         model.websiteId=$routeParams['websiteId'];
-        model.userId=$routeParams['userId'];
+        model.userId=currentUser._id;
 
 
         model.trust = trust;
@@ -22,7 +22,7 @@
                 .findAllWidgetsForPage(model.pageId)
                 .then(function(widgets){
                     model.widgets=widgets;
-                    console.log(widgets)
+                    //console.log(widgets)
                 });
         }
         init();

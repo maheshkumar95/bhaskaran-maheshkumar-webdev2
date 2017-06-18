@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
                 <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
-                   href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
+                   href="#!/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
                 </a>
             <a class="navbar-brand" href="#">
                 Image Editor
@@ -18,6 +18,9 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
 
     <label for="name">Name</label>
     <input class="form-control"
@@ -43,7 +46,7 @@
 
 
 
-    <a class="btn btn-block btn-info" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
+    <a class="btn btn-block btn-info" href="#!/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
         Search
     </a>
 

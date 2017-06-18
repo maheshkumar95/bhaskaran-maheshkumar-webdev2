@@ -16,6 +16,16 @@
                 return;
             }
 
+            if(password === null || password === '' || typeof password === 'undefined') {
+                model.error = 'password is required';
+                return;
+            }
+
+            if(password2 === null || password2 === '' || typeof password2 === 'undefined') {
+                model.error = ' verify password is required';
+                return;
+            }
+
             if(password !== password2 || password === null || typeof password === 'undefined') {
                 model.error = "passwords must match";
                 return;

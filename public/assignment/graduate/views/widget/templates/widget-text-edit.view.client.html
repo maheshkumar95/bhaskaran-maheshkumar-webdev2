@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand glyphicon glyphicon-chevron-left pull-left"
-               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
+               href="#!/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" >
             </a>
             <a class="navbar-brand" href="#">
                 Heading Editor
@@ -19,12 +19,12 @@
 
 
 
-
-
-
-<div class="container-fluid" ng-controller="widgetEditController">
-    Text
-    <input ng-model="model.widget.text" class="form-control"/>
+<div class="container-fluid">
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+    Name
+    <input ng-model="model.widget.name" class="form-control"/>
     Rows
     <input ng-model="model.widget.rows" class="form-control" type="number"/>
     Placeholder

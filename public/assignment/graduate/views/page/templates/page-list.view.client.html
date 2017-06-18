@@ -8,7 +8,7 @@
                 Page List
             </a>
             <p class="navbar-text pull-right">
-                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                <a href="#!/website/{{model.websiteId}}/page/new">
                     <span class="glyphicon glyphicon-plus pull-right"></span>
                 </a>
             </p>
@@ -40,7 +40,7 @@
         <div ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-xs-10">
-                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                    <a href="#!/website/{{model.websiteId}}/page/{{page._id}}/widget">
                        {{page.name}}
                     </a>
                 </div>
@@ -51,7 +51,7 @@
                     {{page.accessed | date }}
                 </div>
                 <div class="col-md-1 col-xs-2">
-                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                    <a href="#!/website/{{model.websiteId}}/page/{{page._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </div>

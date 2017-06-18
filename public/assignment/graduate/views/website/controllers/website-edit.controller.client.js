@@ -5,10 +5,11 @@
     
     function websiteEditController($routeParams,
                                    $location,
+                                   currentUser,
                                    websiteService) {
         var model = this;
 
-        model.userId = $routeParams['userId'];
+        model.userId = currentUser._id;
         model.websiteId = $routeParams['websiteId'];
         model.deleteWebsite = deleteWebsite;
         model.updateWebsite = updateWebsite;
@@ -36,10 +37,14 @@
 
 
         function updateWebsite(website) {
+            if(website.name === null || website.name === '' || typeof website.name === 'undefined') {
+                model.error = 'Website name is required';
+                return;
+            }
             websiteService
                 .updateWebsite(model.websiteId, website)
                 .then(function () {
-                    $location.url('/user/'+model.userId +'/website');
+                    $location.url('/website');
                 });
         }
         function renderWebsite(website)
@@ -57,7 +62,7 @@
             websiteService
                 .deleteWebsite(model.websiteId,model.userId)
                 .then(function(){
-                    $location.url('/user/'+model.userId+'/website');
+                    $location.url('/website');
                 });
 
         }
