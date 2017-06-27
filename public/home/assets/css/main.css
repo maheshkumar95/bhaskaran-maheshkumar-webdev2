@@ -1,11 +1,7 @@
 @import url(font-awesome.min.css);
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400";
 
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 /* Reset */
 
@@ -14,7 +10,6 @@
 		padding: 0;
 		border: 0;
 		font-size: 100%;
-		/*font: inherit;*/
 		vertical-align: baseline;
 
 	}
@@ -63,6 +58,9 @@ img.bg {
 	position: fixed;
 	top: 0;
 	left: 0;
+}
+img:hover{
+	opacity:0.5;
 }
 
 
@@ -1721,6 +1719,7 @@ img.bg {
 
 	p {
 		margin: 0 0 2em 0;
+		/*font-size: large;*/
 
 	}
 
@@ -2708,6 +2707,9 @@ img.bg {
 				height: 2px;
 				margin: 0.7em 0 1em 0;
 				border-radius: 2px;
+				/*font-size:large;*/
+				/*font-size: 1.25em;*/
+
 
 			}
 
@@ -2715,8 +2717,17 @@ img.bg {
 					margin-left:auto;
 					margin-right: auto;
 					text-align: center;
+					/*font-size:large;*/
+
 
 				}
+				section.main{
+					font-size: large;
+
+					/*text-align: center;*/
+				}
+
+
 
 		header.major p {
 			font-size: 1.25em;
@@ -3057,6 +3068,8 @@ img.bg {
 
 			.spotlight .content header.major {
 				margin: 0 0 2em 0;
+				/*font-size: large;*/
+
 			}
 
 		.spotlight .image {
@@ -3094,6 +3107,8 @@ img.bg {
 					.spotlight .content header.major h2:after {
 						margin-left: auto;
 						margin-right: auto;
+						/*font-size: large;*/
+
 					}
 
 				.spotlight .image {
@@ -3830,7 +3845,9 @@ img.bg {
 			}
 
 		}
-
+section.main p{
+	text-align: inherit;
+}
 /* Wrapper */
 
 	#wrapper {
